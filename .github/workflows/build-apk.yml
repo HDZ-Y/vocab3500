@@ -9,6 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    env:
+      ANDROID_HOME: /usr/local/lib/android/sdk
+      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
 
     steps:
       - name: 拉取代码
@@ -25,8 +28,10 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: 准备 Android SDK
-        uses: android-actions/setup-android@v3
+      - name: 检查环境
+        run: |
+          echo "SDK: $ANDROID_HOME"
+          ls "$ANDROID_HOME/platforms" || true
 
       - name: 安装前端依赖
         run: npm install --no-audit --no-fund
