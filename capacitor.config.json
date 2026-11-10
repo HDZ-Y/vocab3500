@@ -1,0 +1,12 @@
+{
+  "appId": "com.vocab3500.app",
+  "appName": "专升本3500词",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#EDEFEA",
+    "allowMixedContent": false
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}
